@@ -9,7 +9,7 @@ DEFAULT_SUMMARY_MODEL = "facebook/bart-large-cnn"
 
 class HFClient:
     def __init__(self, token: str | None = None):
-        self.token = token or os.getenv("HF_TOKEN", "")
+        self.token = token or os.getenv("HF_API_TOKEN", "")
         self.headers = {"Authorization": f"Bearer {self.token}"} if self.token else {}
 
     async def infer(self, model: str, payload: dict) -> dict:
